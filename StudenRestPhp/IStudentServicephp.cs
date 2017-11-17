@@ -8,10 +8,15 @@ using System.Text;
 
 namespace StudenRestPhp
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IStudentServicephp" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IStudentServicephp
     {
+
+        [OperationContract]
+        [WebInvoke (Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/tools")]
+        IList<Student> GetStudents();
+
 
         [OperationContract]
         string GetData(int value);
@@ -21,6 +26,9 @@ namespace StudenRestPhp
 
         // TODO: Add your service operations here
     }
+
+  
+
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
