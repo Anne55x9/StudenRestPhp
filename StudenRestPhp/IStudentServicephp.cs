@@ -14,7 +14,7 @@ namespace StudenRestPhp
     {
 
         [OperationContract]
-        [WebInvoke (Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/tools")]
+        [WebInvoke (Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/students")]
         IList<Student> GetStudents();
 
 
