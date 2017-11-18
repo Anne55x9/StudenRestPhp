@@ -105,15 +105,15 @@ namespace StudenRestPhp
 /// <param name="value"></param>
 /// <returns></returns>
 
-        public string GetData(int value)
-        {
-            throw new NotImplementedException();
-        }
+        //public string GetData(int value)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            throw new NotImplementedException();
-        }
+        //public CompositeType GetDataUsingDataContract(CompositeType composite)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
     }
 }
