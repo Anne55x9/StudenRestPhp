@@ -14,9 +14,29 @@ namespace StudenRestPhp
     {
 
         [OperationContract]
-        [WebInvoke (Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "/students")]
+        [WebInvoke (Method = "GET", ResponseFormat = WebMessageFormat.Json, 
+            UriTemplate = "students")]
         IList<Student> GetStudents();
 
+        [OperationContract]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "student/{id}")]
+        Student GetStudent(string id);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "tools")]
+        Student AddStudent(Student student);
+
+        [OperationContract]
+        [WebInvoke(Method = "PUT", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "tools/{id}")]
+        Student UpdateStudent(string id, Student student);
+
+        [OperationContract]
+        [WebInvoke(Method = "DELETE", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "tools/{id}")]
+        Student DeleteStudent(string id);
 
         [OperationContract]
         string GetData(int value);

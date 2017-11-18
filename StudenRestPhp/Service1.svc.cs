@@ -50,27 +50,70 @@ namespace StudenRestPhp
         }
 
 
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0}", value);
-        }
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
-
         public IList<Student> GetStudents()
         {
             return studentList;
         }
+
+        public Student GetStudent(string id)
+        {
+            int idNumber = int.Parse(id);
+            return studentList.FirstOrDefault(student => student.Id == idNumber);
+        }
+
+        public Student AddStudent(Student student)
+        {
+            student.Id = _nextid++;
+            studentList.Add(student);
+            return student;
+        }
+
+
+        public Student UpdateStudent(string id, Student student)
+        {
+            int idNumber = int.Parse(id);
+            Student existingStu = studentList.FirstOrDefault(b => b.Id == idNumber);
+            if (existingStu == null)
+            {
+                return null;
+            }
+            existingStu.Id = student.Id;
+            existingStu.Name = student.Name;
+            existingStu.Start = student.Start;
+            existingStu.School = student.School;
+            return existingStu;
+        }
+
+        public Student DeleteStudent(string id)
+        {
+            Student student = GetStudent(id);
+            if (student == null)
+            {
+                return null;
+            }
+            bool removed = studentList.Remove(student);
+            if (removed)
+            {
+                return student;
+            }
+            return null;
+        }
+
+/// <summary>
+/// Koden nederfor bruges ikke.
+/// </summary>
+/// <param name="value"></param>
+/// <returns></returns>
+
+        public string GetData(int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
