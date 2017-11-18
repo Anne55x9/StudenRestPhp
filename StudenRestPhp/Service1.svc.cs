@@ -77,7 +77,7 @@ namespace StudenRestPhp
             {
                 return null;
             }
-            existingStu.Id = student.Id;
+            
             existingStu.Name = student.Name;
             existingStu.Start = student.Start;
             existingStu.School = student.School;
